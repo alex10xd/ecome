@@ -5,8 +5,14 @@ module.exports = {
     database: process.env.DB_DATABASE || "railway",
     host: process.env.DB_HOST || "autorack.proxy.rlwy.net",
     port: process.env.DB_PORT || "59811",
-    dialect: "mysql"
-  },
+    dialect: "mysql",
+    dialectOptions: {
+      connectTimeout: 10000,
+      // Fuerza IPv4
+      useIPv6: false
+    }
+  }
+  ,
   test: {
     username: process.env.DB_USERNAME || "root",
     password: process.env.DB_PASSWORD || null,
